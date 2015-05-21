@@ -12,7 +12,7 @@ categories.each do |category|
   0.upto(10) do |i|
     p = Product.new
     p.manager_id = i+1
-    p.category = category
+    p.category = categoty
     p.title = "#{category}#{i} apparel"
     p.content = "#{category}#{i} content"
     p.save
