@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'clothes#list'
+  get 'clothes/list'
 
   get 'clothes/list_categoty'
 
