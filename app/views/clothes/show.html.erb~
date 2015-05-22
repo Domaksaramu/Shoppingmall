@@ -1,5 +1,5 @@
 <p><%= flash[:alert] %></p><div>
-<h2><%= @product.category %>'s Apparels</h2>
+<h2><%= @category %>'s Apparels</h2>
 </div>
 <hr>
  

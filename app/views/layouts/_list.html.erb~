@@ -1,7 +1,3 @@
-<div>
-  <h2>Welcome on board!</h2>
-</div>
-<hr>
 <% @products.reverse.each do |product| %>
 	<div style="border: 1px solid #ffffff">
 	  <h4><%= product.title %></h4>

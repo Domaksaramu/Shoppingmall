@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%= render :partial => "layouts/header"%>
+<h4><a href="/">Main page</a> || <a href="/Man">Man</a> || <a href="/Woman">Woman</a> || <a href="/Accessory">Accessory</a></h4>
 
 <%= yield %>
 

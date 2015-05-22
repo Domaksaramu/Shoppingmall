@@ -1,5 +1,5 @@
 <div>
-  <h2>Welcome on board!</h2>
+  <h2><%= @category %>'s Apparels</h2>
 </div>
 <hr>
 <% @products.reverse.each do |product| %>

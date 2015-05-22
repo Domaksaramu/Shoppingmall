@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 20150521090709) do
     t.integer  "manager_id"
     t.string   "category"
     t.string   "title"
+    t.string   "image_url"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  get 'clothes/list'
+  get 'clothes/management'
 
-  get 'clothes/list_categoty'
+  root 'clothes#list'
 
-  get 'clothes/show'
+  get '/:category' => 'clothes#list_category'
 
-  get 'clothes/write'
+  get 'clothes/show/:id' => 'clothes#show'
+
+  get 'clothes/management'
+
+  get 'clothes/write'#/:manager_id' => 'clothes#write'
 
   get 'clothes/write_complete'
 

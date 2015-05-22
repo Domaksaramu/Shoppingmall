@@ -9,12 +9,14 @@
 categories = ["Man","Woman","Accessory"]
 
 categories.each do |category|
-  0.upto(10) do |i|
+  1.upto(2) do |i|
     p = Product.new
-    p.manager_id = i+1
+    p.manager_id = i
     p.category = category
-    p.title = "#{category}#{i} apparel"
-    p.content = "#{category}#{i} content"
+    p.manager_id = "jaewon"
+    p.title = "#{p.category}#{i} apparel"
+    p.content = "#{p.category}#{i} content"
+    p.image_url = "#{p.category}0#{i}.jpg"
     p.save
   end
 end

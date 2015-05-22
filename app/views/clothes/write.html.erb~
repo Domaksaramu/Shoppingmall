@@ -8,8 +8,8 @@
 		<option value="Woman">Woman</option>
 		<option value="Accessory">Accessory</option>
 	</select></p>
-	<p>image url:	<input type="text" name="product_image_url" placeholder="input image_url"></p>
-	<p>title:	<input type="text" name="product_title" placeholder="input title"></p>
-	<p>content:	<textarea name="product_content" placeholder="input contents"></textarea></p>
+	<p>image url: <input type="text" name="product_image_url" placeholder="input image_url"></p>
+	<p>title: <input type="text" name="product_title" placeholder="input title"></p>
+	<p>content: <textarea name="product_content" placeholder="input contents"></textarea></p>
 	<input type="submit" value="Add">
 </form>

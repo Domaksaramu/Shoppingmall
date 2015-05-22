@@ -5,9 +5,10 @@ class CreateProducts < ActiveRecord::Migration
 	t.integer :manager_id
 	t.string :category
 	t.string :title
+	t.string :image_url
 	t.text :content
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
