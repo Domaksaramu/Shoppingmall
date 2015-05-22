@@ -9,6 +9,10 @@
   <p style="color: #ff0000">category: <%= @product.category %></p>
   <p>content: <%= @product.content %></p>
 
+  <form action="/clothes/edit/<%= @product.id %>" method="get">
+ 	<input type="submit" value="Edit">
+  </form>
+
   <p><a href="/">Go back main page</a></p>
 </div>
 

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   get 'clothes/write'#/:manager_id' => 'clothes#write'
 
-  get 'clothes/write_complete'
+  post 'clothes/write_complete'
 
-  get 'clothes/edit'
+  get 'clothes/edit/:id' =>'clothes#edit'
 
   get 'clothes/edit_complete'
 

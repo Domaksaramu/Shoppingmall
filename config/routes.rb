@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   post 'clothes/write_complete'
 
-  get 'clothes/edit'
+  get 'clothes/edit/:id' =>'clothes#edit'
 
-  get 'clothes/edit_complete'
+  post 'clothes/edit_complete'
 
   get 'clothes/delete_complete'
 

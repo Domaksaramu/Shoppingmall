@@ -1,5 +1,5 @@
 <p><%= flash[:alert] %></p><div>
-<h2><%= @category %>'s Apparels</h2>
+<h2><%= @product.category %>'s Apparels</h2>
 </div>
 <hr>
  
@@ -8,6 +8,10 @@
   <%= image_tag(@product.image_url) %>
   <p style="color: #ff0000">category: <%= @product.category %></p>
   <p>content: <%= @product.content %></p>
+
+  <form action="/clothes/edit/<%= @product.id %>" method="get">
+ 	<input type="submit" value="Add new product">
+  </form>
 
   <p><a href="/">Go back main page</a></p>
 </div>
