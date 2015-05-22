@@ -46,4 +46,14 @@ class ClothesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get write_comment_complete" do
+    get :write_comment_complete
+    assert_response :success
+  end
+
+  test "should get add_cart" do
+    get :add_cart
+    assert_response :success
+  end
+
 end

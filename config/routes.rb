@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'clothes/management'
-
   root 'clothes#list'
 
   get '/:category' => 'clothes#list_category'
@@ -17,7 +15,16 @@ Rails.application.routes.draw do
 
   post 'clothes/edit_complete'
 
-  get 'clothes/delete_complete'
+  get 'clothes/delete_complete/:id' => 'clothes#delete_complete'
+
+  post 'clothes/write_comment_complete'
+
+  post 'clothes/delete_comment_complete/:id' =>'clothes#delete_comment_complete'
+
+  get 'clothes/add_cart'
+
+  get 'clothes/management'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

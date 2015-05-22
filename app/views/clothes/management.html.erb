@@ -2,7 +2,7 @@
   <h2>Manager page</h2>
 </div>
 <hr>
-<form action="/clothes/write" method="get">
+<form action="/clothes/write>" method="get">
 	<input type="submit" value="Add new product">
 </form>
 
@@ -12,6 +12,12 @@
 	  <p><%= image_tag(product.image_url) %></p>
 	  <p style="color :ff0000"><%= product.category %></p>
 	  <p><%= product.content %></p>
-	  <p><%= button_to "edit"%> <%= button_to "delete"%></p>
+
+	  <form action="/clothes/edit/<%= product.id %>" method="get">
+	 	<input type="submit" value="Edit">
+	  </form>
+	  <form action="/clothes/delete_complete/<%= product.id %>" method="get">
+	 	<input type="submit" value="Delete">
+	  </form>
 	</div>
 <% end %>

@@ -9,10 +9,22 @@
   <p style="color: #ff0000">category: <%= @product.category %></p>
   <p>content: <%= @product.content %></p>
 
-  <form action="/clothes/edit/<%= @product.id %>" method="get">
- 	<input type="submit" value="Add new product">
-  </form>
+<hr>
+  <% @product.comments.each do |comment| %>
+  <p><strong>ID :</string><%= comment.content%></p>
 
+  <form action="/clothes/delete_comment_complete/<%= comment.id%>" method="post">
+    <input type ="submit" value="Delete">
+  </form>
+  <% end %>
+
+  <form action="/clothes/write_comment_complete" method = "post">
+  <input type="hidden" name="product_id" value="<%= @product.id%>">
+  <p>writer: <input type="text" name="comment_content" placeholder="input comment"><input type="submit" value="Comment"></p>
+  </form>
   <p><a href="/">Go back main page</a></p>
+
 </div>
+
+
 

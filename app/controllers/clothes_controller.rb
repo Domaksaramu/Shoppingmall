@@ -36,7 +36,7 @@ class ClothesController < ApplicationController
 	product.title = params[:product_title]
 	product.content = params[:product_content]
 	if product.save
-		flash[:alert] = "it is saved"
+		flash[:alert] = "it was saved"
 		redirect_to "/clothes/show/#{product.id}"
 	else
 		flach[:alert] = product.error.flatten.join(' ')
@@ -55,7 +55,7 @@ class ClothesController < ApplicationController
 	p.title = params[:product_title]
 	p.content = params[:product_content]
 	if p.save
-		flash[:alert] = "it is edited"
+		flash[:alert] = "it was edited"
 		redirect_to "/clothes/show/#{p.id}"
 	else
 		flach[:alert] = product.error.flatten.join(' ')
@@ -64,5 +64,28 @@ class ClothesController < ApplicationController
   end
 
   def delete_complete
+	p = Product.find(params[:id])
+	p.destroy
+	flash[:alert] = "it was deleted"
+	redirect_to "/"
+  end
+  def write_comment_complete
+	c = Comment.new
+	c.product_id = params[:product_id]
+	c.content = params[:comment_content]
+	c.save
+
+	flash[:alert] = "Comment was written"
+	redirect_to "/clothes/show/#{c.product_id}"
+  end
+
+  def delete_comment_complete
+	c = Comment.find(params[:id])
+	c.destroy
+	flash[:alert] = "comment was deleted"
+	redirect_to "/clothes/show/#{c.product_id}"
+  end
+
+  def add_cart
   end
 end
