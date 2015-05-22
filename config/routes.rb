@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'managers/m_login'
+
+  post 'managers/m_login_complete'
+
+  get 'managers/m_logout_complete'
+
+  get 'users/signup'
+
+  post 'users/signup_complete'
+
+  get 'users/login'
+
+  post 'users/login_complete'
+
+  get 'users/logout_complete'
+
   root 'clothes#list'
 
   get '/:category' => 'clothes#list_category'

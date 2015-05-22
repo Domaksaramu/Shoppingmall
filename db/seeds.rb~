@@ -13,9 +13,16 @@ categories.each do |category|
     p = Product.new
     p.manager_id = i
     p.category = category
+    p.manager_id = "jaewon"
     p.title = "#{p.category}#{i} apparel"
     p.content = "#{p.category}#{i} content"
     p.image_url = "#{p.category}0#{i}.jpg"
     p.save
   end
 end
+
+m = Manager.new
+m.managername = "limjewon"
+m.password = "limjewon"
+m.save
+

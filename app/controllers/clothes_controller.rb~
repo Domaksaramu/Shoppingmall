@@ -1,4 +1,11 @@
 class ClothesController < ApplicationController
+  before_action :login_check
+  skip_before_action :login_check, :only => [:list, :list_category, :show, :management, :write, :write_complete,
+ :edit, :edit_complete, :delete_complete]
+
+  before_action :manager_login_check
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login]
+
   def list
 	@products = Product.all
   end
@@ -83,7 +90,7 @@ class ClothesController < ApplicationController
 	c = Comment.find(params[:id])
 	c.destroy
 	flash[:alert] = "comment was deleted"
-	redirect to "/clothes/show/#{c.product_id}"
+	redirect_to "/clothes/show/#{c.product_id}"
   end
 
   def add_cart

@@ -1,3 +1,25 @@
-<h4><a href="/">Main page</a> || <a href="/Man">Man</a> || <a href="/Woman">Woman</a> || <a href="/Accessory">Accessory</a>||<a href=
-"management">Manager page</a></h4>
+<h4><a href="/"> Main page </a> || <a href="/Man"> Man </a> || <a href="/Woman"> Woman </a> || <a href="/Accessory"> Accessory </a> || 
 
+<% if session[:manager_id].nil? %>
+
+	<a href=
+	"/clothes/management"> Manager page </a> || 
+
+	<% if session[:user_id].nil? %>
+
+	<a href="/users/signup"> Sign up </a> || <a href="/users/login"> Sign in </a>
+
+	<% else %>
+
+	<a href="/users/logout_complete"> Sign out </a>
+
+	<% end %>
+
+<% else %>
+	
+	<a href="/managers/m_logout_complete"> Sign out </a>
+
+<% end %>
+
+</h4>
+<p><%= flash[:alert]%></p>

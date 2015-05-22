@@ -11,12 +11,17 @@ categories = ["Man","Woman","Accessory"]
 categories.each do |category|
   1.upto(2) do |i|
     p = Product.new
-    p.manager_id = i
     p.category = category
-    p.manager_id = "jaewon"
+    p.manager_id = "limjewon"
     p.title = "#{p.category}#{i} apparel"
     p.content = "#{p.category}#{i} content"
     p.image_url = "#{p.category}0#{i}.jpg"
     p.save
   end
 end
+
+m = Manager.new
+m.managername = "limjewon"
+m.password = "limjewon"
+m.save
+
