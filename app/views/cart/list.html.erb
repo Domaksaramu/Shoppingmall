@@ -1,0 +1,38 @@
+<div style="background-color: #e9eaed;">
+  <h1>Cart list</h1>
+	<table style="background-color: #ffffff; width: 1000px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
+		<thead>
+			<tr>
+				<th style="width: 100px;">이미지</th>
+				<th style="width: 100px; ">품목</th>
+				<th style="width: 100px; ">가격</th>
+				<th style="width: 100px; ">분류</th>
+				<th style="width: 200px; ">내용</th>
+				<th style="width: 100px; ">수량</th>
+				<th style="width: 100px; ">삭제</th>
+			</tr>
+		</thead>
+		<tbody>
+	 <% @list.reverse.each do |list| %>
+			<% if list.user_id == session[:user_id] %>
+			<tr>
+				<td><%=image_tag(list.image_url)%></td>
+				<td style="text-align: center;"><%=list.title%></td>
+				<td style="text-align: center;"><%=list.price%></td>
+				<td style="text-align: center;"><%=list.category%></td>
+				<td style="text-align: center;"><%=truncate(strip_tags(list.content), length: 40)%></td>
+				<td style="text-align: center;"><%=list.quantity%></td>
+				<td style="text-align: center;"><a href="/cart/delete/<%= list.id%>">delete</a>		
+			<% @total_price = @total_price + list.price * list.quantity %>
+			</tr>
+			<% end %>
+	<% end %>
+		</tbody>
+	</table><br>
+	<p>총합: <%= @total_price  %>원
+	<form action="/cart/purchase/" method="POST">
+		<input type="hidden" name="total_price" value=<%= @total_price %>>
+		<input type="submit" value="Purchase">	
+	</form>
+	</p>
+</div>

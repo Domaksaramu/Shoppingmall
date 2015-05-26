@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="row">
 	<div class="col-md-4" style="float ;left; width :300px;">
-		<a href="/clothes/newarrival" >NewArrival</a><br>
-		<a href="/clothes/tshirt"  >티셔츠</a><br>
-		<a href="/clothes/shirt" >셔츠</a><br>
-		<a href="/clothes/cardigan" >가디건</a><br>
-		<a href="/clothes/jacket" >자켓</a><br>
-		<a href="/clothes/pants" >팬츠</a><br>
-		<a href="/clothes/shorts" >반바지</a><br>
-		<a href="/clothes/denim" >데님</a><br>
-		<a href="/clothes/homewear" >홈웨어</a><br>
+		<a href="/clothes/newarrival">NewArrival</a><br>
+		<a href="/clothes/tshirt">티셔츠</a><br>
+		<a href="/clothes/shirt">셔츠</a><br>
+		<a href="/clothes/cardigan">가디건</a><br>
+		<a href="/clothes/jacket">자켓</a><br>
+		<a href="/clothes/pants">팬츠</a><br>
+		<a href="/clothes/shorts">반바지</a><br>
+		<a href="/clothes/denim">데님</a><br>
+		<a href="/clothes/homewear">홈웨어</a><br>
 		<a href="/clothes/accessory">엑세사리</a><br>
 		<a href="/clothes/sale">Sale</a><br>
 		
@@ -20,6 +20,7 @@
 	  		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
 	  		<p><%= image_tag(product.image_url) %></p>
 	  		<p style="color :ff0000"><%= product.category %></p>
+	  		<p style="color :0000ff"><%= product.category2 %></p>
 				<p><%= product.price%>원</p>
 	  		<p><%= product.content %></p>
 			</div>

@@ -1,10 +1,10 @@
 class ClothesController < ApplicationController
   before_action :login_check
   skip_before_action :login_check, :only => [:list, :list_category, :show, :management, :write, :write_complete,
- :edit, :edit_complete, :delete_complete]
+ :edit, :edit_complete, :delete_complete, :categorize]
 
   before_action :manager_login_check
-  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login]
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize]
 
   def list
 	@products = Product.all
@@ -41,6 +41,7 @@ class ClothesController < ApplicationController
 	product.category = params[:product_category]
 	product.image_url = params[:product_image_url]
 	product.title = params[:product_title]
+	product.price = params[:product_price]
 	product.content = params[:product_content]
 	if product.save
 		flash[:alert] = "it was saved"
@@ -60,6 +61,7 @@ class ClothesController < ApplicationController
 	p.category = params[:product_category]
 	p.image_url = params[:product_image_url]
 	p.title = params[:product_title]
+	p.price = params[:product_price]
 	p.content = params[:product_content]
 	if p.save
 		flash[:alert] = "it was edited"
@@ -93,6 +95,22 @@ class ClothesController < ApplicationController
 	redirect_to "/clothes/show/#{c.product_id}"
   end
 
-  def add_cart
+  def search
+		total = Product.all
+		@category = params[:category]
+		word = params[:search]
+		@search = "%"+word+"%"
+		@products = total.where('title like ?',@search)
   end
+	def categorize
+		#case params[:category]
+		#when "newarrival"
+		#	@category2 = "newarrival"
+		#when "tshirt"
+		#	@category2 = "tshirt"
+		#when "homewear"
+		#	@category2 = "homewear"
+		#end
+		@products = Product.where(category2: params[:category])
+	end
 end

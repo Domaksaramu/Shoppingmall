@@ -1,13 +1,29 @@
-<h2><%= @product.category %>'s Apparels</h2>
-</div>
-<hr>
+<h2 style="width: 1000px;"><%= @product.category %>'s Apparels</h2>
  
-<div style="border: 1px solid #ffffff">
+<div style="border: 1px solid #ffffff; width: 1000px;">
+  <hr style="width: 1000px; ">
   <h4>title: <%= @product.title %></h4>
   <%= image_tag(@product.image_url) %>
   <p style="color: #ff0000">category: <%= @product.category %></p>
+	<p style="color: #0000ff">category2: <%= @product.category2 %></p>
+	<p>price: <%=@product.price %></p>
   <p>content: <%= @product.content %></p>
-
+	<p style="font-size: 90%; text-align: right;">
+	<form action="/cart/add/", method="GET">
+	<input type="hidden" name="product_id" value=<%=@product.id%>>
+	수량:<select name="quantity">
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+				<option value=6>6</option>
+				<option value=7>7</option>
+				<option value=8>8</option>
+				<option value=9>9</option>
+			</select>
+	<input type="submit" value="add to cart">
+	</form>
 <hr>
   <% @product.comments.each do |comment| %>
   <p><strong>ID :</string><%= comment.content%></p>

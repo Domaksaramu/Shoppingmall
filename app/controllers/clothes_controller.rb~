@@ -41,6 +41,7 @@ class ClothesController < ApplicationController
 	product.category = params[:product_category]
 	product.image_url = params[:product_image_url]
 	product.title = params[:product_title]
+	product.price = params[:product_price]
 	product.content = params[:product_content]
 	if product.save
 		flash[:alert] = "it was saved"
@@ -60,6 +61,7 @@ class ClothesController < ApplicationController
 	p.category = params[:product_category]
 	p.image_url = params[:product_image_url]
 	p.title = params[:product_title]
+	p.price = params[:product_price]
 	p.content = params[:product_content]
 	if p.save
 		flash[:alert] = "it was edited"
@@ -74,7 +76,7 @@ class ClothesController < ApplicationController
 	p = Product.find(params[:id])
 	p.destroy
 	flash[:alert] = "it was deleted"
-	redirect_to "/"
+	redirect_to "/clothes/management"
   end
   def write_comment_complete
 	c = Comment.new
@@ -93,6 +95,11 @@ class ClothesController < ApplicationController
 	redirect_to "/clothes/show/#{c.product_id}"
   end
 
-  def add_cart
+  def search
+		total = Product.all
+		@catergory = params[:category]
+		word = params[:search]
+		@search = "%"+word+"%"
+		@products = total.where('title like ?',@search)
   end
 end

@@ -19,4 +19,5 @@ class ApplicationController < ActionController::Base
 			redirect_to "/managers/m_login"
 		end
 	end
+	
 end

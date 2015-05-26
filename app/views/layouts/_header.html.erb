@@ -1,3 +1,4 @@
+<h1 style="text-align :center">THE CLOSET</h1>
 <h4><a href="/"> Main page </a> || <a href="/Man"> Man </a> || <a href="/Woman"> Woman </a> || <a href="/Accessory"> Accessory </a> || <a href="/clothes/management"> Manager page </a> || 
 
 <% if session[:manager_id].nil? %>
@@ -8,8 +9,8 @@
 
 	<% else %>
 
-	<a href="/users/logout_complete"> Sign out </a>
-
+	<a href="/users/logout_complete"> Sign out </a> ||
+	<a href="/cart/list">My Cart</a>
 	<% end %>
 
 <% else %>

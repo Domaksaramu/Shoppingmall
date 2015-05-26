@@ -12,11 +12,21 @@ class ApplicationController < ActionController::Base
 	end
 
 	def manager_login_check
-		@current_user = nil
+		@current_manager = nil
 		if !session[:manager_id].nil?
-		@current_user = User.find(session[:manager_id])
+		@current_manager = Manager.find(session[:manager_id])
 		else
 			redirect_to "/managers/m_login"
 		end
 	end
+	
+	private
+
+		def current_cart
+			Cart.find(session[:cart_id])
+		rescue ActiveRecord::RecordNotFound
+			cart = Cart.create
+			session[:cart_id] = cart.id
+			cart
+		end
 end

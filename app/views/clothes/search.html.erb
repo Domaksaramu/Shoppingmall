@@ -1,0 +1,12 @@
+<h1>Search result in <%=@category%> </h1>
+<% @products.reverse.each do |product| %>
+	<% if product.category == @category %>
+		<div style="border: 1px solid #ffffff">
+	  	<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
+	  	<p><%= image_tag(product.image_url) %></p>
+	  	<p style="color :ff0000"><%= product.category %></p>
+			<p><%= product.price%>원</p>
+	  	<p><%= product.content %></p>
+		</div>
+	<%end%>
+<% end %>
