@@ -1,23 +1,35 @@
-<h1 style="text-align :center">THE CLOSET</h1>
-<h4><a href="/"> Main page </a> || <a href="/Man"> Man </a> || <a href="/Woman"> Woman </a> || <a href="/Accessory"> Accessory </a> || <a href="/clothes/management"> Manager page </a> || 
+<div class="container">
+  <h1 class="shop_title"><a class="shop_title_link" href="/">THE CLOSET</a></h1>
+</div>
 
-<% if session[:manager_id].nil? %>
 
-	<% if session[:user_id].nil? %>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+	<div class="col">
+	    <ul class="nav navbar-nav navbar-left">
+	      <li><a href="/"> Main page </a></li>
+	      <li><a href="/Man"> Man </a></li>
+	      <li><a href="/Woman"> Woman </a></li>
+	      <li><a href="/Accessory"> Accessory </a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="/clothes/management"> Manager page </a></li>
+	      <% if session[:manager_id].nil? %>
+		<% if session[:user_id].nil? %>
+		  <li><a href="/users/signup"> Sign up </a></li>
+		  <li><a href="/users/login"> Sign in </a></li>
+		<% else %>
+		  <li><a href="/users/logout_complete"> Sign out </a></li>
+		  <li><a href="/cart/list">My Cart</a></li>
+		<% end %>
+	      <% else %>
+		<li><a href="/managers/m_logout_complete"> Sign out </a></li>
+	      <% end %>
+	    </ul>
+	</div>
+  </div>
+</nav>
 
-	<a href="/users/signup"> Sign up </a> || <a href="/users/login"> Sign in </a>
 
-	<% else %>
 
-	<a href="/users/logout_complete"> Sign out </a> ||
-	<a href="/cart/list">My Cart</a>
-	<% end %>
-
-<% else %>
-	
-	<a href="/managers/m_logout_complete"> Sign out </a>
-
-<% end %>
-
-</h4>
 <p><%= flash[:alert]%></p>

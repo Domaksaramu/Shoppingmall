@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 	if u.nil?
 		flash[:alert] = "Wrong ID or password"
 		redirect_to :back
-	elseif u.password != params[:password]
+	elsif u.password != params[:password]
 		flash[:alert] = "Wrong ID or password"
 		redirect_to :back
 	else

@@ -10,7 +10,7 @@ categories = ["Man","Woman","Accessory"]
 catagories2 = ["newarrival","tshirt","shirt","cardigan","jacket","pants",
 "shorts","denim","homewear","accessory","sale"]
 categories.each do |category|
-  1.upto(2) do |i|
+  1.upto(3) do |i|
     p = Product.new
     p.category = category
     p.category2 = "homewear"

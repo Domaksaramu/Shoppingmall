@@ -1,9 +1,15 @@
-<hr>
-<h1>Manager page</h1>
-
-<form action="/managers/m_login_complete" method="post">
-  <p>ID : <input type="text" name="managername"></p>
-  <p>Password : <input type="text" name="password"></p>
-  <input type="submit" value="Sign in">
-</form>
+<h1>Manager page</h1><hr>
+<div class="row">
+	<div class="col-md-5">
+	</div>
+	<div class="col-md-5">
+	<form action="/managers/m_login_complete" method="post">
+	  <p>ID : <input type="text" name="managername"></p>
+	  <p>Password : <input type="password" name="password"></p>
+	  <input type="submit" value="Sign in">
+	</form>
+	</div>
+	<div class="col-md-5">
+	</div>
+</div>
 

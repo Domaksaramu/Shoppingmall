@@ -1,12 +1,6 @@
-<div>
-  <h2>Welcome on board!</h2>
+<div class="container">
+
+  <hr>
+<%= render :partial => "clothes/list" %>
+ 
 </div>
-<hr>
-<% @products.reverse.each do |product| %>
-	<div style="border: 1px solid #ffffff">
-	  <h4><%= product.title %></h4>
-	  <p><%= image_tag(product.image_url) %></p>
-	  <p style="color :ff0000"><%= product.category %></p>
-	  <p><%= product.content %></p>
-	</div>
-<% end %>

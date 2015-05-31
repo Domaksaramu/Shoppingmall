@@ -7,13 +7,13 @@ class ManagersController < ApplicationController
 	if m.nil?
 		flash[:alert] = "Wrong ID or password"
 		redirect_to :back
-	elseif m.password != params[:password]
+	elsif m.password != params[:password]
 		flash[:alert] = "Wrong ID or password"
 		redirect_to :back
 	else
 		session[:manager_id] = m.id
 		flash[:alert] = "You signed in by manager"
-		redirect_to "/"
+		redirect_to "/clothes/management"
 	end
   end
 

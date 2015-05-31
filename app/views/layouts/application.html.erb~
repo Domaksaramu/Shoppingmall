@@ -7,10 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<h4><a href="/">Main page</a> || <a href="/Man">Man</a> || <a href="/Woman">Woman</a> || <a href="/Accessory">Accessory</a></h4>
-
-<%= yield %>
-
+<div class="contaner">
+	<%= render :partial => "layouts/header"%>
+	<div class="row">
+		<div class="col-md-2">
+			<%= render :partial => "layouts/sidebar"%>
+		</div>
+		<div class="col-md-6">
+			<%= yield %>
+		</div>
+		<div class="col-md-4">
+			<%= render :partial => "layouts/search_bar"%>
+		</div>
+		
+	</div>
+</div>
 </body>
 </html>

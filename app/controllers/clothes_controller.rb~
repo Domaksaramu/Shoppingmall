@@ -1,10 +1,10 @@
 class ClothesController < ApplicationController
   before_action :login_check
   skip_before_action :login_check, :only => [:list, :list_category, :show, :management, :write, :write_complete,
- :edit, :edit_complete, :delete_complete]
+ :edit, :edit_complete, :delete_complete, :categorize]
 
   before_action :manager_login_check
-  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login]
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize]
 
   def list
 	@products = Product.all
@@ -97,9 +97,20 @@ class ClothesController < ApplicationController
 
   def search
 		total = Product.all
-		@catergory = params[:category]
+		@category = params[:category]
 		word = params[:search]
 		@search = "%"+word+"%"
 		@products = total.where('title like ?',@search)
   end
+	def categorize
+		#case params[:category]
+		#when "newarrival"
+		#	@category2 = "newarrival"
+		#when "tshirt"
+		#	@category2 = "tshirt"
+		#when "homewear"
+		#	@category2 = "homewear"
+		#end
+		@products = Product.where(category2: params[:category])
+	end
 end
