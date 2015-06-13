@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   root 'clothes#list'
 
-  get '/:category' => 'clothes#list_category'
+  get '/:category' => 'clothes#categorize'
 
   get 'clothes/show/:id' => 'clothes#show'
 
@@ -45,9 +45,9 @@ Rails.application.routes.draw do
 
   post 'clothes/delete_comment_complete/:id' =>'clothes#delete_comment_complete'
 
-	get 'clothes/:category' => 'clothes#categorize'	
+  get 'clothes/search' =>'clothes#search'
+
  
-  get "clothes/search"
 
   get 'clothes/management'
 
