@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   root 'clothes#list'
 
-  get '/:category' => 'clothes#categorize'
+  get '/:category' => 'clothes#list_category'
 
   get 'clothes/show/:id' => 'clothes#show'
 
@@ -47,9 +47,14 @@ Rails.application.routes.draw do
 
   get 'clothes/search' =>'clothes#search'
 
- 
+  get 'clothes/category_search' =>'clothes#category_search' 
 
   get 'clothes/management'
+
+  get 'categorize/:category2' =>'clothes#categorize'
+
+  get 'categorize/:category2/:category' =>'clothes#categorize'
+
 
 
 

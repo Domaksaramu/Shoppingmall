@@ -26,15 +26,6 @@ a.shop_title_link:hover{
 	color: #ee3b53;
 	text-decoration: none;
 }
-
-.side_bar{
-	height: 100%;
-	width: 200px;
-	padding: 30px 0px 30px 30px;
-}
-.list_body{
-	padding: 70px 0px 0px 0px;
-}
 .form-heading{
 	margin: 35px 0px 20px 0px;
 }
@@ -51,4 +42,13 @@ a.shop_title_link:hover{
 	border: 1.5px solid #cccccc;
 	border-radius: 6px;
 	padding: 0px 0px 0px 10px;
+}
+
+.side_bar{
+	height: 100%;
+	width: 200px;
+	padding: 30px 0px 30px 30px;
+}
+.list_body{
+	padding: 70px 0px 0px 0px;
 }

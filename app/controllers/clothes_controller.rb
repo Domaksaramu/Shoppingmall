@@ -1,10 +1,10 @@
 class ClothesController < ApplicationController
   before_action :login_check
   skip_before_action :login_check, :only => [:list, :list_category, :show, :management, :write, :write_complete,
- :edit, :edit_complete, :delete_complete, :categorize, :search]
+ :edit, :edit_complete, :delete_complete, :categorize, :search, :category_search]
 
   before_action :manager_login_check
-  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search]
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search]
 
   def list
 	@products = Product.all
@@ -96,14 +96,60 @@ class ClothesController < ApplicationController
   end
 
   def search
-		total = Product.all
-		word = params[:search]
-		@category1 = params[:category1]
-		@category2 = params[:category2]
-		@search = "%"+word+"%"
-		@products = total.where('title like ?',@search)
+	total = Product.all
+	word = params[:search]
+	@search = "%"+word+"%"
+	@products = total.where('title like ?',@search)
   end
-	def categorize
-		@products = Product.where(category2: params[:category])
+
+  def category_search
+
+	case params[:category]
+	when ""
+		@category = nil
+		
+	else
+		@category = params[:category]
 	end
+	
+	case params[:category2]
+	when ""
+		@category2 = nil
+	else
+		@category2 = params[:category2]
+	end
+	
+
+	
+
+	@category2 = params[:category2]
+	if @category.nil?
+		total = Product.where(category2:@category2)
+	else
+		if @category.nil?
+		total = Product.where(category:@category)
+		else
+		total = Product.where(category2:@category2).where(category:@category)
+		end
+	end
+	word = params[:search]
+	@search = "%"+word+"%"
+	@products = total.where('title like ?',@search)
+  end
+
+  def categorize
+	case params[:category]
+	when ""
+		@category = nil
+	else
+		@category = params[:category]
+	end
+	@category2 = params[:category2]
+
+	if @category.nil?
+		@products = Product.where(category2: @category2)
+	else
+		@products = Product.where(category2: @category2).where(category: @category)
+	end
+  end
 end

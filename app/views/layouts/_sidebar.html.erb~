@@ -1,18 +1,19 @@
-
 <div class="side_bar">
   <div class="container">
 	<div class="col">
-	<a href="/newarrival" >NewArrival</a><br><br>
-	<a href="/clothes/tshirt"  >티셔츠</a><br><br>
-	<a href="/clothes/shirt" >셔츠</a><br><br>
-	<a href="/clothes/cardigan" >가디건</a><br><br>
-	<a href="/clothes/jacket" >자켓</a><br><br>
-	<a href="/clothes/pants" >팬츠</a><br><br>
-	<a href="/clothes/shorts" >반바지</a><br><br>
-	<a href="/clothes/denim" >데님</a><br><br>
-	<a href="/clothes/homewear" >홈웨어</a><br><br>
-	<a href="/clothes/accessory">엑세사리</a><br><br>
-	<a href="/clothes/sale">Sale</a><br><br>
+		
+		<a href="/categorize/newarrival/<%=@category%>" >NewArrival</a><br><br>
+		<a href="/categorize/tshirt"  >티셔츠</a><br><br>
+		<a href="/categorize/shirt" >셔츠</a><br><br>
+		<a href="/categorize/cardigan" >가디건</a><br><br>
+		<a href="/categorize/jacket" >자켓</a><br><br>
+		<a href="/categorize/pants" >팬츠</a><br><br>
+		<a href="/categorize/shorts" >반바지</a><br><br>
+		<a href="/categorize/denim" >데님</a><br><br>
+		<a href="/categorize/homewear" >홈웨어</a><br><br>
+		<a href="/categorize/accessory">엑세사리</a><br><br>
+		<a href="/categorize/sale">Sale</a><br><br>
+		
 	</div>
   </div>
 </div>

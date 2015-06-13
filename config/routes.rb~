@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  get "cart/list" => 'cart#list'
+
+  get "cart/add" => 'cart#add'
+
+  get "cart/delete/:id" => 'cart#delete'
+
+  post "cart/purchase"
+
   get 'managers/m_login'
 
   post 'managers/m_login_complete'
 
-  post 'managers/m_logout_complete'
+  get 'managers/m_logout_complete'
 
   get 'users/signup'
 
@@ -37,9 +45,17 @@ Rails.application.routes.draw do
 
   post 'clothes/delete_comment_complete/:id' =>'clothes#delete_comment_complete'
 
-  get 'clothes/add_cart'
+  get 'clothes/search' =>'clothes#search'
+
+  get 'clothes/category_search' =>'clothes#category_search' 
 
   get 'clothes/management'
+
+  get 'categorize/:category2' =>'clothes#categorize'
+
+  get 'categorize/:category2/:category' =>'clothes#categorize'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

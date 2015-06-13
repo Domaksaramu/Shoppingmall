@@ -52,6 +52,3 @@ a.shop_title_link:hover{
 	border-radius: 6px;
 	padding: 0px 0px 0px 10px;
 }
-.btn{
-	backgrond:#cccccc;
-}

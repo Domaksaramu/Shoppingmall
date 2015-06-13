@@ -1,6 +1,6 @@
-<div class="container">
-
-  <hr>
-<%= render :partial => "clothes/list" %>
+<ul class="container">
+	
+	<li class="search_bar"><%= render :partial => "layouts/search_bar"%></li>
+	<li class="list_product"><%= render :partial => "clothes/list" %></li>
  
-</div>
+</ul>
