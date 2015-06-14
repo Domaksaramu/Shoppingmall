@@ -1,9 +1,13 @@
-<hr>
-<p><%= flash[:alert]%></p>
-<h2>Sign in page</h2>
+<h2>Sign in page</h2><br><br><br>
+<div class="log_in_form">
+	<form action="/users/login_complete" method="post">
+		<div class="input_text">
+			<p>ID : <input type="text" name="username"></p>
+		</div>
+		<div class="input_text">
+			<p>Password : <input type="password" name="password"></p>
+		</div>
+		<div class="input_text"><input type="submit" value="Sign in"></div>
+	</form>
+</div>
 
-<form action="/users/login_complete" method="post">
-  <p>ID : <input type="text" name="username"></p>
-  <p>Password : <input type="password" name="password"></p>
-  <input type="submit" value="Sign in">
-</form>

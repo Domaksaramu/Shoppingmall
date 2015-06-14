@@ -13,7 +13,7 @@ class ManagersController < ApplicationController
 	else
 		session[:manager_id] = m.id
 		flash[:alert] = "You signed in by manager"
-		redirect_to "/clothes/management"
+		redirect_to "/"
 	end
   end
 

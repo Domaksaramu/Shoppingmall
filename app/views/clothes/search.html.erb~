@@ -1,6 +1,4 @@
 <div class="container">
-	<div class="search_bar"><%= render :partial => "layouts/search_bar"%></div>
-	<h1>Search result  </h1>
-	<div class="list_product"><%= render :partial => "clothes/list" %></div>
- 
+	<h1 class="search_result_title">>Search result</h1>
+	<%= render :partial => "clothes/list" %>
 </div>

@@ -1,13 +1,24 @@
-<div class="container">
-	<table>
-	<% @products.reverse.each do |product| %>
-		<div style="border: 1px solid #ffffff">
-	  		<p><%= image_tag(product.image_url) %></p>
-	  		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
-	  		<p style="color :ff0000"><%= product.category %></p>
-				<p><%= product.price%>원</p>
-	  		<p><%= product.content %></p>
-		</div>
-	<% end %>
-	</table>
-</div>
+
+<%if session[:manager_id]%>
+<div class><form action="/clothes/write" method="get" >
+	<input type="submit" value="Add new product">
+</form></div>
+<% end %>
+<% @products.reverse.each do |product| %>
+	<div class="list_product">
+  		<p><%= image_tag(product.image_url) %></p>
+  		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
+  		<p style="color :ff0000"><%= product.category %></p>
+			<p style="color :0000ff"><%= product.category2 %></p>
+			<p><%= product.price%>원</p>
+  		<p><%= product.content %></p>
+		<% if session[:manager_id]%>		
+			<form action="/clothes/edit/<%= product.id %>" method="get">
+			<input type="submit" value="Edit">
+			</form>
+			<form action="/clothes/delete_complete/<%= product.id %>" method="get">
+			<input type="submit" value="Delete">
+			</form>
+		<% end %>
+	</div>
+<% end %>

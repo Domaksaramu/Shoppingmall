@@ -1,17 +1,2 @@
-<form class="navbar-form navbar-right" action="/clothes/search/" method="GET">
- 분류내 검색:<input type="text" name="search"><input type="submit" value="찾기">
- <input type="hidden" name="category1" value=<%=@products.find(1).category%>>
- <input type="hidden" name="category2" value=<%=@products.find(1).category2%>>
-</form>
-<div class="container">
-		<% @products.reverse.each do |product| %>
-			<div style="border: 1px solid #ffffff">
-	  		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
-	  		<p><%= image_tag(product.image_url) %></p>
-	  		<p style="color :ff0000"><%= product.category %></p>
-	  		<p style="color :0000ff"><%= product.category2 %></p>
-				<p><%= product.price%>원</p>
-	  		<p><%= product.content %></p>
-			</div>
-		<% end %>
-</div>
+<%= render :partial => "clothes/list" %>
+

@@ -2,9 +2,11 @@
   <h2>Manager page</h2>
 </div>
 <hr>
-<form action="/clothes/write>" method="get">
+
+<form action="/clothes/write" method="get" >
 	<input type="submit" value="Add new product">
 </form>
+<%= render :partial => "clothes/list" %>
 
 <% @products.reverse.each do |product| %>
 	<div style="border: 1px solid #ffffff">
@@ -13,11 +15,6 @@
 	  <p style="color :ff0000"><%= product.category %></p>
 	  <p><%= product.content %></p>
 
-	  <form action="/clothes/edit/<%= product.id %>" method="get">
-	 	<input type="submit" value="Edit">
-	  </form>
-	  <form action="/clothes/delete_complete/<%= product.id %>" method="get">
-	 	<input type="submit" value="Delete">
-	  </form>
+	  
 	</div>
 <% end %>

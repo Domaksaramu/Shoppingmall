@@ -1,19 +1,22 @@
-<div class="side_bar">
-  <div class="container">
-	<div class="col">
-		
-		<a href="/categorize/newarrival/<%=@category%>" >NewArrival</a><br><br>
-		<a href="/categorize/tshirt"  >티셔츠</a><br><br>
-		<a href="/categorize/shirt" >셔츠</a><br><br>
-		<a href="/categorize/cardigan" >가디건</a><br><br>
-		<a href="/categorize/jacket" >자켓</a><br><br>
-		<a href="/categorize/pants" >팬츠</a><br><br>
-		<a href="/categorize/shorts" >반바지</a><br><br>
-		<a href="/categorize/denim" >데님</a><br><br>
-		<a href="/categorize/homewear" >홈웨어</a><br><br>
-		<a href="/categorize/accessory">엑세사리</a><br><br>
-		<a href="/categorize/sale">Sale</a><br><br>
-		
-	</div>
-  </div>
+<div class="col">
+	<% if @category.nil?%>	
+		<h3><b>All products</b></h3><br>
+	<% else %>
+		<h3><b><%=@category%></b></h3><br>
+	<% end %>
+	<% if @category2 %>
+		<h4><b><%=@category2%></b><h4>
+	<% end %>
+
+	<hr>
+	<a href="/categorize/newarrival" ><%= image_tag("sidebar/new_arrival.png") %></a>
+	<a href="/categorize/tshirt"  ><%= image_tag("sidebar/t-shirts.PNG") %></a>
+	<a href="/categorize/shirt" ><%= image_tag("sidebar/shirts.PNG") %></a>
+	<a href="/categorize/cardigan" ><%= image_tag("sidebar/cadigon.PNG") %></a>
+	<a href="/categorize/jacket" ><%= image_tag("sidebar/jacket.PNG") %></a>
+	<a href="/categorize/pants" ><%= image_tag("sidebar/pants.PNG") %></a>
+	<a href="/categorize/shorts" ><%= image_tag("sidebar/short_pants.PNG") %></a>
+	<a href="/categorize/denim" ><%= image_tag("sidebar/denim.PNG") %></a>
+	<a href="/categorize/homewear" ><%= image_tag("sidebar/homewear.PNG") %></a>
+	<a href="/categorize/sale"><%= image_tag("sidebar/sale.PNG") %></a>
 </div>

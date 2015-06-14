@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html>
+<div class="container">
 <head>
-  <title>The closet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= render :partial => "layouts/header"%>
 </head>
 <body>
-<div class="contaner">
-	<%= render :partial => "layouts/header"%>
-	<div class="row">
-		<div class="col-md-2">
-			<%= render :partial => "layouts/sidebar"%>
-		</div>
-		<div class="col-md-6">
-			<div class="list_body"><%= yield %></div>
-		</div>
-		
+	<div class="side_bar">
+		<%= render :partial => "layouts/sidebar"%>
 	</div>
-</div>
+	<div class="list_body">
+		<%= yield %>
+	</div>
+		
 </body>
+</div>
 </html>
