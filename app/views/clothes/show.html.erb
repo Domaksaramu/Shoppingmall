@@ -1,9 +1,13 @@
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-5">
+  <%= image_tag(@product.image_url) %>
+  </div>
+  <div class="col-md-5">
 <h2 style="width: 1000px;"><%= @product.category %>'s Apparels</h2>
- 
-<div style="border: 1px solid #ffffff; width: 1000px;">
   <hr style="width: 1000px; ">
   <h4>title: <%= @product.title %></h4>
-  <%= image_tag(@product.image_url) %>
   <p style="color: #ff0000">category: <%= @product.category %></p>
 	<p style="color: #0000ff">category2: <%= @product.category2 %></p>
 	<p>price: <%=@product.price %></p>
@@ -42,6 +46,9 @@
   <% if session[:manager_id] %>
     <p><a href="/clothes/management">Go to manager page</a></p>
   <% end %>
+  </div>
+  <div class="col-md-1">
+  </div>
   
 </div>
 

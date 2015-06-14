@@ -57,6 +57,7 @@ a.shop_title_link:hover{
 .search_bar{
 	padding-top:5px;
 	padding-right:30px;
+	float:right;
 }
 .side_bar{
 	height: 100%;

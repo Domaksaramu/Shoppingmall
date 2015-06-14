@@ -2,8 +2,8 @@
 
       <% if session[:manager_id].nil? %>
 	<% if session[:user_id].nil? %>
-	  <div class="log_in_component"><a href="/users/signup"> Sign up </a></div>
 	  <div class="log_in_component"><a href="/users/login"> Sign in </a></div>
+	  <div class="log_in_component"><a href="/users/signup"> Sign up </a></div>
 	<% else %>
 	  <div class="log_in_component"><a href="/users/logout_complete"> Sign out </a></div>
 	  <div class="log_in_component"><a href="/cart/list">My Cart</a></div>
