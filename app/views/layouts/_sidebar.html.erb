@@ -9,6 +9,7 @@
 	<% end %>
 
 	<hr>
+	<% if @category!="Accessory" %>
 	<a href="/categorize/newarrival" ><%= image_tag("sidebar/new_arrival.png") %></a>
 	<a href="/categorize/tshirt"  ><%= image_tag("sidebar/t-shirts.PNG") %></a>
 	<a href="/categorize/shirt" ><%= image_tag("sidebar/shirts.PNG") %></a>
@@ -19,4 +20,5 @@
 	<a href="/categorize/denim" ><%= image_tag("sidebar/denim.PNG") %></a>
 	<a href="/categorize/homewear" ><%= image_tag("sidebar/homewear.PNG") %></a>
 	<a href="/categorize/sale"><%= image_tag("sidebar/sale.png") %></a>
+	<% end %>
 </div>

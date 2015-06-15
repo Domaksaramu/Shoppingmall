@@ -18,5 +18,5 @@
 	<a href="/categorize/shorts" ><%= image_tag("sidebar/short_pants.PNG") %></a>
 	<a href="/categorize/denim" ><%= image_tag("sidebar/denim.PNG") %></a>
 	<a href="/categorize/homewear" ><%= image_tag("sidebar/homewear.PNG") %></a>
-	<a href="/categorize/sale"><%= image_tag("sidebar/sale.PNG") %></a>
+	<a href="/categorize/sale"><%= image_tag("sidebar/sale.png") %></a>
 </div>
