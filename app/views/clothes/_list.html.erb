@@ -6,12 +6,10 @@
 <% end %>
 <% @products.reverse.each do |product| %>
 	<div class="list_product">
-  		<p><%= image_tag(product.image_url) %></p>
+  		<p><%= image_tag(product.image_url, width:"160") %></p>
   		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
-  		<p style="color :ff0000"><%= product.category %></p>
-			<p style="color :0000ff"><%= product.category2 %></p>
-			<p><%= product.price%>원</p>
   		<p><%= product.content %></p>
+  		<p><%= product.price%>원</p>
 		<% if session[:manager_id]%>		
 			<form action="/clothes/edit/<%= product.id %>" method="get">
 			<input type="submit" value="Edit">

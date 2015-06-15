@@ -147,7 +147,6 @@ class ClothesController < ApplicationController
 		
 	when "Accessory"
 		@category = "Accessory"
-		
 	else
 		@category = nil
 	end

@@ -9,14 +9,38 @@
 	<% end %>
 
 	<hr>
-	<a href="/categorize/newarrival" ><%= image_tag("sidebar/new_arrival.png") %></a>
-	<a href="/categorize/tshirt"  ><%= image_tag("sidebar/t-shirts.PNG") %></a>
-	<a href="/categorize/shirt" ><%= image_tag("sidebar/shirts.PNG") %></a>
-	<a href="/categorize/cardigan" ><%= image_tag("sidebar/cadigon.PNG") %></a>
-	<a href="/categorize/jacket" ><%= image_tag("sidebar/jacket.PNG") %></a>
-	<a href="/categorize/pants" ><%= image_tag("sidebar/pants.PNG") %></a>
-	<a href="/categorize/shorts" ><%= image_tag("sidebar/short_pants.PNG") %></a>
-	<a href="/categorize/denim" ><%= image_tag("sidebar/denim.PNG") %></a>
-	<a href="/categorize/homewear" ><%= image_tag("sidebar/homewear.PNG") %></a>
-	<a href="/categorize/sale"><%= image_tag("sidebar/sale.png") %></a>
+	<% if @category!="Accessory" %>
+<form action="/categorize/tshirt" method="GET">
+<%= image_submit_tag("sidebar/t-shirts.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/shirt" method="GET">
+<%= image_submit_tag("sidebar/shirts.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/cardigan" method="GET">
+<%= image_submit_tag("sidebar/cardigan.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/jacket" method="GET">
+<%= image_submit_tag("sidebar/jacket.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/pants" method="GET">
+<%= image_submit_tag("sidebar/pants.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/shorts" method="GET">
+<%= image_submit_tag("sidebar/shorts.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/denim" method="GET">
+<%= image_submit_tag("sidebar/denim.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+<form action="/categorize/homewear" method="GET">
+<%= image_submit_tag("sidebar/homewear.PNG")%>
+<input type="hidden" name="category" value=<%=@category%>>
+</form>
+	<% end %>
 </div>

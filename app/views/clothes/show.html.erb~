@@ -4,7 +4,7 @@
   <div class="col-md-5">
   <%= image_tag(@product.image_url) %>
   </div>
-
+  <div class="col-md-5">
 <h2 style="width: 1000px;"><%= @product.category %>'s Apparels</h2>
   <hr style="width: 1000px; ">
   <h4>title: <%= @product.title %></h4>
@@ -46,6 +46,9 @@
   <% if session[:manager_id] %>
     <p><a href="/clothes/management">Go to manager page</a></p>
   <% end %>
+  </div>
+  <div class="col-md-1">
+  </div>
   
 </div>
 

@@ -57,7 +57,7 @@ a.shop_title_link:hover{
 .search_bar{
 	padding-top:5px;
 	padding-right:30px;
-	float:right
+	float:right;
 }
 .side_bar{
 	height: 100%;
@@ -69,11 +69,11 @@ a.shop_title_link:hover{
 }
 .list_body{
 	width:80%;
-	padding-top:70px;
+	padding-top:120px;
 	float:left;
 }
 .list_product{
-	height:400px;
+	height:100%;
 	width:25%;
 	float:left;
 }
@@ -93,26 +93,24 @@ a.shop_title_link:hover{
 	width:300px;
 	float:left;
 }
+
 @media screen and (max-width: 1280px){
 }
 @media screen and (max-width: 1024px){
 	.side_bar{display:none;}
 	.list_body{
 		width:100%;
-		padding-top:70px;
 		float:left;
 	}
 }
 @media screen and (max-width: 768px){
 	.list_product{
-		height:400px;
 		width:33%;
 		float:left;
 	}
 }
 @media screen and (max-width: 600px){
 	.list_product{
-		height:400px;
 		width:50%;
 		float:left;
 	}
