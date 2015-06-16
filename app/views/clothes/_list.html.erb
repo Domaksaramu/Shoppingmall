@@ -5,7 +5,7 @@
 </form></div>
 
 <% end %>
-<form action=<%=request.original_url%> method="GET">
+<div class="select_box"><form action=<%=request.original_url%> method="GET">
 <select name="_order">
 <option value="id DESC">신상품순</option>
 <option value="price DESC">높은 가격순</option>
@@ -13,7 +13,7 @@
 <input type="submit" value="새로고침">
 <input type="hidden" name="category" value=<%=@category%>>
 <input type="hidden" name="category2" value=<%=@category2%>>
-</form>
+</form></div>
 </select>
 <% @products.order(@_order).each do |product| %>
 	<div class="list_product">

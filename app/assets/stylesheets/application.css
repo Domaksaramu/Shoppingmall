@@ -67,6 +67,9 @@ a.shop_title_link:hover{
 .side_component{
 	float:left;
 }
+.select_box{
+	width:80%;
+}
 .list_body{
 	width:80%;
 	padding-top:70px;
