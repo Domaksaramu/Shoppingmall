@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 		redirect_to :back
 	else
 		session[:user_id] = u.id
+		session[:username] = u.username
 		flash[:alert] = "You signed in successfully"
 		redirect_to "/"
 	end

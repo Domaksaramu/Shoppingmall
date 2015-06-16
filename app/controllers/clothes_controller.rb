@@ -7,6 +7,9 @@ class ClothesController < ApplicationController
   skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search, :write_comment_complete, :delete_comment_complete]
 
   def list
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
 	case params[:_order]
 	when ""
 		@_order = "id DESC"

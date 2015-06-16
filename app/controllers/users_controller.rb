@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	
 	if params[:password] == params[:retype_password]
 		u.password = params[:password]
+		u.money = params[:money]
 		if u.save
 			flash[:alert] = "You signed up successfully"
 			redirect_to "/"
