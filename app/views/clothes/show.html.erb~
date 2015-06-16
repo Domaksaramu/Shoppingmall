@@ -30,15 +30,19 @@
 	</form>
 <hr>
   <% @product.comments.each do |comment| %>
-  <p><strong>ID <%= comment.user_id%>:</string><%= comment.content%></p>
+  <p><strong>ID <%= comment.username%>:</string><%= comment.content%></p>
 
+<% if comment.username == session[:username]%>
   <form action="/clothes/delete_comment_complete/<%= comment.id%>" method="post">
     <input type ="submit" value="Delete">
   </form>
+<% end%>
+
+
   <% end %>
 
   <form action="/clothes/write_comment_complete" method = "post">
-  <input type="hidden" name="user_id" value=session[:user_id] >
+  <input type="hidden" name="username" value=<%= session[:username]%>>
   <input type="hidden" name="product_id" value="<%= @product.id%>">
   <p>writer: <input type="text" name="comment_content" placeholder="input comment"><input type="submit" value="Comment"></p>
   </form>

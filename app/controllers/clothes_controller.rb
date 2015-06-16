@@ -107,6 +107,7 @@ class ClothesController < ApplicationController
   end
   def write_comment_complete
 	c = Comment.new
+	c.username = params[:username]
 	c.product_id = params[:product_id]
 	c.content = params[:comment_content]
 	c.save
