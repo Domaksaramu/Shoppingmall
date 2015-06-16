@@ -99,6 +99,7 @@ class ClothesController < ApplicationController
   def edit_complete
 	p = Product.find(params[:id])
 	p.category = params[:product_category]
+	p.category2 = params[:product_category2]
 	p.image_url = params[:product_image_url]
 	p.title = params[:product_title]
 	p.price = params[:product_price]
