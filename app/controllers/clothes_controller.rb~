@@ -4,7 +4,7 @@ class ClothesController < ApplicationController
  :edit, :edit_complete, :delete_complete, :categorize, :search, :category_search]
 
   before_action :manager_login_check
-  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search]
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search, :write_comment_complete, :delete_comment_complete]
 
   def list
 	case params[:_order]
@@ -38,6 +38,7 @@ class ClothesController < ApplicationController
   end
 
   def show
+	@user
 	case params[:category]
 	when ""
 		@category = nil
@@ -105,6 +106,7 @@ class ClothesController < ApplicationController
 	redirect_to "/clothes/management"
   end
   def write_comment_complete
+	@user = User.find(params[])
 	c = Comment.new
 	c.product_id = params[:product_id]
 	c.content = params[:comment_content]
@@ -130,27 +132,27 @@ class ClothesController < ApplicationController
 
   def category_search
 	case params[:category]
-	when ""
-	@category = nil
+		when ""
+		@category = nil
 
-	else
-	@category = params[:category]
-	first = Product.where(category: @category)
+		else
+		@category = params[:category]
+		first = Product.where(category: @category)
 	end
 
 	case params[:category2]
-	when ""
-	@category2 = nil
-	second = first
-	else
-	@category2 = params[:category2]
-	second = first.where(category2: @category2)
+		when ""
+		@category2 = nil
+		second = first
+		else
+		@category2 = params[:category2]
+		second = first.where(category2: @category2)
 	end
 
 	word = params[:search]
 	@search = "%"+word+"%"
 	@products = second.where('title like ?',@search)
-	end
+	
   end
 
   def categorize

@@ -7,7 +7,7 @@
   <div class="col-md-5">
 <h2 style="width: 1000px;"><%= @product.category %>'s Apparels</h2>
   <hr style="width: 1000px; ">
-  <h4>title: <%= @product.title %></h4>
+  <h4><%= @product.title %></h4>
   <p style="color: #ff0000">category: <%= @product.category %></p>
 	<p style="color: #0000ff">category2: <%= @product.category2 %></p>
 	<p>price: <%=@product.price %></p>
@@ -30,7 +30,7 @@
 	</form>
 <hr>
   <% @product.comments.each do |comment| %>
-  <p><strong>ID :</string><%= comment.content%></p>
+  <p><strong>ID <%= comment.user_id%>:</string><%= comment.content%></p>
 
   <form action="/clothes/delete_comment_complete/<%= comment.id%>" method="post">
     <input type ="submit" value="Delete">
@@ -38,6 +38,7 @@
   <% end %>
 
   <form action="/clothes/write_comment_complete" method = "post">
+  <input type="hidden" name="user_id" value=session[:user_id] >
   <input type="hidden" name="product_id" value="<%= @product.id%>">
   <p>writer: <input type="text" name="comment_content" placeholder="input comment"><input type="submit" value="Comment"></p>
   </form>

@@ -11,6 +11,8 @@
 <option value="price DESC">높은 가격순</option>
 <option value="price">낮은 가격순</option>
 <input type="submit" value="새로고침">
+<input type="hidden" name="category" value=<%=@category%>>
+<input type="hidden" name="category2" value=<%=@category2%>>
 </form>
 </select>
 <% @products.order(@_order).each do |product| %>

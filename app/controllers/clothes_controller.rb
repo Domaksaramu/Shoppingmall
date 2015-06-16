@@ -4,7 +4,7 @@ class ClothesController < ApplicationController
  :edit, :edit_complete, :delete_complete, :categorize, :search, :category_search]
 
   before_action :manager_login_check
-  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search]
+  skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search, :write_comment_complete, :delete_comment_complete]
 
   def list
 	case params[:_order]
@@ -38,6 +38,7 @@ class ClothesController < ApplicationController
   end
 
   def show
+	@user
 	case params[:category]
 	when ""
 		@category = nil
