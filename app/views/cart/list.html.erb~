@@ -7,6 +7,7 @@
 				<th style="width: 100px; ">품목</th>
 				<th style="width: 100px; ">가격</th>
 				<th style="width: 100px; ">분류</th>
+				<th style="width: 200px; ">내용</th>
 				<th style="width: 100px; ">수량</th>
 				<th style="width: 100px; ">삭제</th>
 			</tr>
