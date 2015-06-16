@@ -79,6 +79,7 @@ class ClothesController < ApplicationController
 	product = Product.new
 	product.category = params[:product_category]
 	product.image_url = params[:product_image_url]
+	product.category2 = params[:product_category2]
 	product.title = params[:product_title]
 	product.price = params[:product_price]
 	product.content = params[:product_content]
