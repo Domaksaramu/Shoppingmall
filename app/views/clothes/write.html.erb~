@@ -31,7 +31,7 @@
 	<p><textarea class="form-textarea" name="product_content" placeholder="input contents"></textarea></p>
 
 	<p>+ upload image</p>
-	<p><input type="file" name="product_image_url"></p>
+	<p><input class="form-input" type="text" name="product_image_url"></p>
 	<input class="btn btn-lg btn-block" type="submit" value="Add">
 </form>
 </div>
