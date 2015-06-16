@@ -7,10 +7,22 @@ class ClothesController < ApplicationController
   skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search]
 
   def list
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
+	else
+		@_order = params[:_order]
+	end
 	@products = Product.all
   end
 
   def list_category
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
+	else
+		@_order = params[:_order]
+	end
 	case params[:category]
 	when "Man"
 		@category = "Man"
@@ -26,6 +38,20 @@ class ClothesController < ApplicationController
   end
 
   def show
+	case params[:category]
+	when ""
+		@category = nil
+		
+	else
+		@category = params[:category]
+	end
+	
+	case params[:category2]
+	when ""
+		@category2 = nil
+	else
+		@category2 = params[:category2]
+	end
 	@product = Product.find(params[:id])
   end
 
@@ -122,7 +148,6 @@ class ClothesController < ApplicationController
 
 	
 
-	@category2 = params[:category2]
 	if @category.nil?
 		total = Product.where(category2:@category2)
 	else
@@ -138,17 +163,17 @@ class ClothesController < ApplicationController
   end
 
   def categorize
-	case params[:category]
-	when "Man"
-		@category = "Man"
-		
-	when "Woman"
-		@category = "Woman"
-		
-	when "Accessory"
-		@category = "Accessory"
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
 	else
+		@_order = params[:_order]
+	end
+	case params[:category]
+	when ""
 		@category = nil
+	else
+		@category = params[:category]
 	end
 	@category2 = params[:category2]
 

@@ -7,10 +7,22 @@ class ClothesController < ApplicationController
   skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search]
 
   def list
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
+	else
+		@_order = params[:_order]
+	end
 	@products = Product.all
   end
 
   def list_category
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
+	else
+		@_order = params[:_order]
+	end
 	case params[:category]
 	when "Man"
 		@category = "Man"
@@ -26,6 +38,20 @@ class ClothesController < ApplicationController
   end
 
   def show
+	case params[:category]
+	when ""
+		@category = nil
+		
+	else
+		@category = params[:category]
+	end
+	
+	case params[:category2]
+	when ""
+		@category2 = nil
+	else
+		@category2 = params[:category2]
+	end
 	@product = Product.find(params[:id])
   end
 
@@ -103,41 +129,37 @@ class ClothesController < ApplicationController
   end
 
   def category_search
-
 	case params[:category]
 	when ""
-		@category = nil
-		
+	@category = nil
+
 	else
-		@category = params[:category]
+	@category = params[:category]
+	first = Product.where(category: @category)
 	end
-	
+
 	case params[:category2]
 	when ""
-		@category2 = nil
+	@category2 = nil
+	second = first
 	else
-		@category2 = params[:category2]
-	end
-	
-
-	
-
 	@category2 = params[:category2]
-	if @category.nil?
-		total = Product.where(category2:@category2)
-	else
-		if @category.nil?
-		total = Product.where(category:@category)
-		else
-		total = Product.where(category2:@category2).where(category:@category)
-		end
+	second = first.where(category2: @category2)
 	end
+
 	word = params[:search]
 	@search = "%"+word+"%"
-	@products = total.where('title like ?',@search)
+	@products = second.where('title like ?',@search)
+	end
   end
 
   def categorize
+	case params[:_order]
+	when ""
+		@_order = "id DESC"
+	else
+		@_order = params[:_order]
+	end
 	case params[:category]
 	when ""
 		@category = nil

@@ -3,11 +3,30 @@
 <div class="add_product_btn"><form action="/clothes/write" method="get" >
 	<input type="submit" value="Add new product">
 </form></div>
+
 <% end %>
-<% @products.reverse.each do |product| %>
+<form action=<%=request.original_url%> method="GET">
+<select name="_order" focus=2>
+<option value="id DESC">신상품순</option>
+<option value="price DESC">높은 가격순</option>
+<option value="price">낮은 가격순</option>
+<input type="submit" value="새로고침">
+</form>
+</select>
+<% @products.order(@_order).each do |product| %>
 	<div class="list_product">
-  		<p><%= image_tag(product.image_url, width:"160") %></p>
-  		<h4><a href="/clothes/show/<%= product.id%>"><%= product.title %></a></h4>
+			<form action= "/clothes/show/<%= product.id%>">
+			<%= image_submit_tag(product.image_url, width:"160") %>
+
+			<input type="hidden" name="category" value=<%=@category%>>
+			<input type="hidden" name="category2" value=<%=@category2%>>
+			</form>
+		<form action="/clothes/show/<%= product.id%>">
+			<input type="submit" value="<%= product.title%>">
+			<input type="hidden" name="category" value=<%=@category%>>
+			<input type="hidden" name="category2" value=<%=@category2%>>
+		</form>
+  		<p><%= product.content %></p>
   		<p><%= product.price%>원</p>
 		<% if session[:manager_id]%>		
 			<form action="/clothes/edit/<%= product.id %>" method="get">

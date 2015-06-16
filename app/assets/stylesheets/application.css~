@@ -62,7 +62,6 @@ a.shop_title_link:hover{
 .side_bar{
 	height: 100%;
 	width: 20%;
-	padding-top:30px;
 	float:left;
 }
 .side_bar_component{
@@ -77,6 +76,7 @@ a.shop_title_link:hover{
 	width:25%;
 	float:left;
 }
+
 .search_result_title{
 	padding: 0px 30px 30px 30px;
 }

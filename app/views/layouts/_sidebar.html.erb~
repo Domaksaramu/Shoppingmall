@@ -10,6 +10,7 @@
 
 	<hr>
 	<% if @category!="Accessory" %>
+<%= form.label , "I agree to the <a href='/'>EULA</a>" %>
 <form action="/categorize/tshirt" method="GET">
 <%= image_submit_tag("sidebar/t-shirts.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
@@ -30,7 +31,7 @@
 <%= image_submit_tag("sidebar/pants.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
-<form action="/categorize/shorts" method="GET">
+<form action="/categorize/short" method="GET">
 <%= image_submit_tag("sidebar/shorts.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
