@@ -6,7 +6,7 @@
 <div class="row">
 <div class="col-md-3">
 </div>
-<div class="col-md-3">
+<div class="col-md-4">
 <h3 class="form-heading">Input product</h3>
 <form action="/clothes/write_complete" method="post" enctype="multipart/form-data">
 	<p>+ Main Category: <select name="product_category">
@@ -31,7 +31,7 @@
 	<p><textarea class="form-textarea" name="product_content" placeholder="input contents"></textarea></p>
 
 	<p>+ upload image</p>
-	<p><input type="file" name="image"></p>
+	<p><input type="file" name="product_image_url"></p>
 	<input class="btn btn-lg btn-block" type="submit" value="Add">
 </form>
 </div>

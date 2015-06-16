@@ -12,7 +12,7 @@ class ClothesController < ApplicationController
 	end
 
 	case params[:_order]
-	when ""
+	when nil
 		@_order = "id DESC"
 	else
 		@_order = params[:_order]
@@ -26,7 +26,7 @@ class ClothesController < ApplicationController
 	end
 
 	case params[:_order]
-	when ""
+	when nil
 		@_order = "id DESC"
 	else
 		@_order = params[:_order]
@@ -115,7 +115,7 @@ class ClothesController < ApplicationController
 	p = Product.find(params[:id])
 	p.destroy
 	flash[:alert] = "it was deleted"
-	redirect_to "/clothes/management"
+	redirect_to "/"
   end
   def write_comment_complete
 	if !session[:user_id].nil?
@@ -184,8 +184,12 @@ class ClothesController < ApplicationController
   end
 
   def categorize
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	case params[:_order]
-	when ""
+	when nil
 		@_order = "id DESC"
 	else
 		@_order = params[:_order]
