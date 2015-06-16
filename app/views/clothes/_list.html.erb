@@ -16,7 +16,7 @@
 <% @products.order(@_order).each do |product| %>
 	<div class="list_product">
 			<form action= "/clothes/show/<%= product.id%>">
-			<%= image_submit_tag(product.image_url, width:"160") %>
+			<%= image_submit_tag(product.image_url, width:"160", height:"200") %>
 
 			<input type="hidden" name="category" value=<%=@category%>>
 			<input type="hidden" name="category2" value=<%=@category2%>>

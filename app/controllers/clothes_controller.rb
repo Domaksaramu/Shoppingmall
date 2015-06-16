@@ -130,27 +130,27 @@ class ClothesController < ApplicationController
 
   def category_search
 	case params[:category]
-	when ""
-	@category = nil
+		when ""
+		@category = nil
 
-	else
-	@category = params[:category]
-	first = Product.where(category: @category)
+		else
+		@category = params[:category]
+		first = Product.where(category: @category)
 	end
 
 	case params[:category2]
-	when ""
-	@category2 = nil
-	second = first
-	else
-	@category2 = params[:category2]
-	second = first.where(category2: @category2)
+		when ""
+		@category2 = nil
+		second = first
+		else
+		@category2 = params[:category2]
+		second = first.where(category2: @category2)
 	end
 
 	word = params[:search]
 	@search = "%"+word+"%"
 	@products = second.where('title like ?',@search)
-	end
+	
   end
 
   def categorize
