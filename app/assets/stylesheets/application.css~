@@ -64,11 +64,12 @@ a.shop_title_link:hover{
 	width: 20%;
 	float:left;
 }
-.side_bar_component{
+.side_component{
+	float:left;
 }
 .list_body{
 	width:80%;
-	padding-top:120px;
+	padding-top:70px;
 	float:left;
 }
 .list_product{
@@ -76,7 +77,6 @@ a.shop_title_link:hover{
 	width:25%;
 	float:left;
 }
-
 .search_result_title{
 	padding: 0px 30px 30px 30px;
 }
@@ -93,14 +93,15 @@ a.shop_title_link:hover{
 	width:300px;
 	float:left;
 }
-
 @media screen and (max-width: 1280px){
 }
 @media screen and (max-width: 1024px){
-	.side_bar{display:none;}
 	.list_body{
 		width:100%;
 		float:left;
+	}
+	.side_bar{
+		width:100%;
 	}
 }
 @media screen and (max-width: 768px){

@@ -1,4 +1,5 @@
-<div class="col">
+<div class>
+<div class="side_component">
 	<% if @category.nil?%>	
 		<h3><b>All products</b></h3><br>
 	<% else %>
@@ -7,41 +8,64 @@
 	<% if @category2 %>
 		<h4><b><%=@category2%></b><h4>
 	<% end %>
-
+</div>
 	<hr>
 	<% if @category!="Accessory" %>
-<%= form.label , "I agree to the <a href='/'>EULA</a>" %>
+<div class="side_component">
 <form action="/categorize/tshirt" method="GET">
 <%= image_submit_tag("sidebar/t-shirts.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/shirt" method="GET">
 <%= image_submit_tag("sidebar/shirts.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/cardigan" method="GET">
 <%= image_submit_tag("sidebar/cardigan.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/jacket" method="GET">
 <%= image_submit_tag("sidebar/jacket.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/pants" method="GET">
 <%= image_submit_tag("sidebar/pants.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/short" method="GET">
 <%= image_submit_tag("sidebar/shorts.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/denim" method="GET">
 <%= image_submit_tag("sidebar/denim.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
+<div class="side_component">
 <form action="/categorize/homewear" method="GET">
 <%= image_submit_tag("sidebar/homewear.PNG")%>
 <input type="hidden" name="category" value=<%=@category%>>
 </form>
+</div>
+
 	<% end %>
 </div>
