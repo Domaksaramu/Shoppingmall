@@ -7,9 +7,10 @@ class ClothesController < ApplicationController
   skip_before_action :manager_login_check, :only => [:list, :list_category, :show, :signup, :login, :categorize, :search, :category_search, :write_comment_complete, :delete_comment_complete]
 
   def list
-	if session[:user_id]?
+	if !session[:user_id].nil?
 		@user = User.find(session[:user_id])
 	end
+
 	case params[:_order]
 	when ""
 		@_order = "id DESC"
@@ -20,6 +21,10 @@ class ClothesController < ApplicationController
   end
 
   def list_category
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	case params[:_order]
 	when ""
 		@_order = "id DESC"
@@ -41,6 +46,10 @@ class ClothesController < ApplicationController
   end
 
   def show
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	@user
 	case params[:category]
 	when ""
@@ -109,6 +118,10 @@ class ClothesController < ApplicationController
 	redirect_to "/clothes/management"
   end
   def write_comment_complete
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	c = Comment.new
 	c.username = params[:username]
 	c.product_id = params[:product_id]
@@ -120,6 +133,10 @@ class ClothesController < ApplicationController
   end
 
   def delete_comment_complete
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	c = Comment.find(params[:id])
 	c.destroy
 	flash[:alert] = "comment was deleted"
@@ -127,6 +144,10 @@ class ClothesController < ApplicationController
   end
 
   def search
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	total = Product.all
 	word = params[:search]
 	@search = "%"+word+"%"
@@ -134,6 +155,10 @@ class ClothesController < ApplicationController
   end
 
   def category_search
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
+
 	case params[:category]
 		when ""
 		@category = nil

@@ -1,5 +1,8 @@
 class ManagersController < ApplicationController
   def m_login
+	if !session[:user_id].nil?
+		@user = User.find(session[:user_id])
+	end
   end
 
   def m_login_complete

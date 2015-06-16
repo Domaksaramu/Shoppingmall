@@ -47,7 +47,6 @@ class CartController < ApplicationController
 		list.each do |component|
 			if component.user_id == session[:user_id]
 				@user.money-=component.price
-				@user.save
 				component.destroy
 			end
 		end
